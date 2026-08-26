@@ -2,20 +2,33 @@ import Link from 'next/link'
 import { supabase } from '@/lib/supabase/client'
 
 export async function Header() {
-  // Fetch sponsors
   let sponsors = []
+  let logoUrl = "/central-cordoba.jpg"
+  
   try {
-    const { data, error } = await supabase
+    const { data: sponsorData } = await supabase
       .from('site_images')
       .select('image_url')
       .eq('section_name', 'Sponsor')
       .order('uploaded_at', { ascending: false })
     
-    if (!error && data) {
-      sponsors = data.map(d => d.image_url)
+    if (sponsorData) {
+      sponsors = sponsorData.map(d => d.image_url)
+    }
+
+    const { data: logoData } = await supabase
+      .from('site_images')
+      .select('image_url')
+      .eq('section_name', 'Escudos y Logos (Footer/Header)')
+      .order('uploaded_at', { ascending: false })
+      .limit(1)
+      .single()
+
+    if (logoData) {
+      logoUrl = logoData.image_url
     }
   } catch (err) {
-    console.error("Error fetching sponsors:", err)
+    console.error("Error fetching header images:", err)
   }
 
   return (
@@ -59,7 +72,7 @@ export async function Header() {
           {/* Escudo CADCC */}
           <div className="w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-full border-[4px] border-cadcc-gold flex items-center justify-center shadow-xl overflow-hidden p-2 shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/central-cordoba.jpg" alt="Escudo CADCC" className="w-full h-full object-contain drop-shadow-md" />
+            <img src={logoUrl} alt="Escudo CADCC" className="w-full h-full object-contain drop-shadow-md" />
           </div>
           <div>
             <h2 className="text-cadcc-gold font-black text-lg sm:text-2xl tracking-[0.2em] uppercase mb-1 drop-shadow-md">
