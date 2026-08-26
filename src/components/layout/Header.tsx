@@ -62,8 +62,13 @@ export async function Header() {
             <img src="/central-cordoba.jpg" alt="Escudo CADCC" className="w-full h-full object-contain drop-shadow-md" />
           </div>
           <div>
-            <h1 className="text-3xl sm:text-5xl font-extrabold text-white drop-shadow-lg tracking-tight">Campus Virtual</h1>
-            <p className="text-cadcc-gold font-bold tracking-wide text-sm sm:text-lg mt-1 sm:mt-2 drop-shadow-md">
+            <h2 className="text-cadcc-gold font-black text-lg sm:text-2xl tracking-[0.2em] uppercase mb-1 drop-shadow-md">
+              ELDEFE
+            </h2>
+            <h1 className="text-3xl sm:text-5xl font-extrabold text-white drop-shadow-lg tracking-tight leading-none">
+              Campus Virtual
+            </h1>
+            <p className="text-gray-200 font-semibold tracking-wide text-sm sm:text-base mt-2 drop-shadow-md">
               Club Atlético Defensores Central Córdoba
             </p>
           </div>
