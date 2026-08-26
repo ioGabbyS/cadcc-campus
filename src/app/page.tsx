@@ -44,8 +44,35 @@ export default async function Home() {
     console.error("Supabase no está configurado aún o faltan tablas", err)
   }
 
+  // Traer el último Banner Principal subido
+  let bannerUrl = null
+  try {
+    const { data: bannerData, error: bannerError } = await supabase
+      .from('site_images')
+      .select('image_url')
+      .eq('section_name', 'Banner Principal (Inicio)')
+      .order('uploaded_at', { ascending: false })
+      .limit(1)
+      .single()
+    
+    if (bannerData && !bannerError) {
+      bannerUrl = bannerData.image_url
+    }
+  } catch (err) {
+    console.error("Error al traer el banner", err)
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
+      {/* Banner Principal Dinámico */}
+      {bannerUrl && (
+        <div className="w-full h-64 sm:h-96 rounded-3xl overflow-hidden shadow-2xl mb-16 relative border-4 border-white">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={bannerUrl} alt="Banner Principal" className="w-full h-full object-cover" />
+          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+        </div>
+      )}
+
       <section className="mb-16 text-center">
         <h2 className="text-4xl font-extrabold text-cadcc-black mb-4">Bienvenido al Campus Virtual</h2>
         <p className="text-lg text-gray-600 max-w-2xl mx-auto">
