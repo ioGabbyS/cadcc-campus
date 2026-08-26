@@ -11,6 +11,7 @@ export function Header() {
             <Link href="/" className="hover:text-cadcc-gold transition-colors">INICIO</Link>
             <Link href="/dashboard/player" className="hover:text-cadcc-gold transition-colors">PANEL JUGADOR</Link>
             <Link href="/dashboard/coach" className="hover:text-cadcc-gold transition-colors">PANEL ENTRENADOR</Link>
+            <Link href="/login" className="hover:text-cadcc-gold transition-colors ml-4 border border-cadcc-gold px-3 py-1 rounded-full text-xs">ACCESO ADMIN</Link>
           </div>
         </div>
       </nav>
