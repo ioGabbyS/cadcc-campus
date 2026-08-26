@@ -26,7 +26,7 @@ export function Footer() {
           
           {/* Redes Sociales */}
           <div className="flex gap-6 text-xs font-bold text-gray-400">
-            <Link href="#" className="hover:text-cadcc-gold transition-colors tracking-wider">INSTAGRAM</Link>
+            <Link href="https://www.instagram.com/defensorescentralcordoba/" target="_blank" rel="noopener noreferrer" className="hover:text-cadcc-gold transition-colors tracking-wider">INSTAGRAM</Link>
             <Link href="#" className="hover:text-cadcc-gold transition-colors tracking-wider">TIKTOK</Link>
             <Link href="#" className="hover:text-cadcc-gold transition-colors tracking-wider">FACEBOOK</Link>
             <Link href="#" className="hover:text-cadcc-gold transition-colors tracking-wider">WHATSAPP</Link>
