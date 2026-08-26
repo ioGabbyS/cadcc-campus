@@ -25,12 +25,14 @@ export function PlayerCard({ name, category, imageUrl, recognitionType }: Player
       {/* Imagen del jugador con overlay oscuro para contraste */}
       <div className="relative h-80 w-full bg-gray-200">
         {imageUrl ? (
-          {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img 
-            src={imageUrl} 
-            alt={`Foto de ${name}`} 
-            className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
-          />
+          <>
+            {/* eslint-disable-next-line @next/next/no-img-element */}
+            <img 
+              src={imageUrl} 
+              alt={`Foto de ${name}`} 
+              className="h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+            />
+          </>
         ) : (
           <div className="flex h-full w-full items-center justify-center bg-gray-100">
             <span className="text-gray-400 font-medium">Sin foto</span>
