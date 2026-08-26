@@ -13,6 +13,7 @@ const geistMono = Geist_Mono({
 });
 
 import { Header } from "@/components/layout/Header";
+import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
   title: "Campus Virtual | CADCC",
@@ -30,6 +31,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <main className="flex-1">
           {children}
         </main>
+        <Footer />
       </body>
     </html>
   );

@@ -5,9 +5,9 @@ export function Header() {
     <header className="diagonal-band-container h-48 sm:h-56 flex flex-col justify-center px-6 sm:px-12 w-full">
       <div className="diagonal-content flex flex-col sm:flex-row sm:items-center justify-between gap-4 w-full max-w-7xl mx-auto">
         <div className="flex items-center gap-4">
-          {/* Escudo o Logo */}
-          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-cadcc-bg rounded-full border-[3px] border-cadcc-gold flex items-center justify-center shadow-xl">
-            <span className="font-bold text-cadcc-black text-xl sm:text-2xl">CADCC</span>
+          {/* Escudo CADCC */}
+          <div className="w-16 h-16 sm:w-20 sm:h-20 bg-cadcc-bg rounded-full border-[3px] border-cadcc-gold flex items-center justify-center shadow-xl overflow-hidden p-1">
+            <img src="/images/cadcc_shield.png" alt="Escudo CADCC" className="w-full h-full object-contain drop-shadow-md" />
           </div>
           <div>
             <h1 className="text-3xl sm:text-4xl font-extrabold text-white drop-shadow-md">Campus Virtual</h1>
