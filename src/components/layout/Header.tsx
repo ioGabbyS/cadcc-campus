@@ -1,14 +1,47 @@
 import Link from 'next/link'
+import { supabase } from '@/lib/supabase/client'
 
-export function Header() {
+export async function Header() {
+  // Fetch sponsors
+  let sponsors = []
+  try {
+    const { data, error } = await supabase
+      .from('site_images')
+      .select('image_url')
+      .eq('section_name', 'Sponsor')
+      .order('uploaded_at', { ascending: false })
+    
+    if (!error && data) {
+      sponsors = data.map(d => d.image_url)
+    }
+  } catch (err) {
+    console.error("Error fetching sponsors:", err)
+  }
+
   return (
     <>
+      {/* Franja de Sponsors Estilo River */}
+      {sponsors.length > 0 && (
+        <div className="bg-red-600 text-white py-2 px-6 border-b border-red-700">
+          <div className="max-w-7xl mx-auto flex items-center justify-end gap-6 text-xs font-bold tracking-widest">
+            <span className="opacity-90">SPONSORS |</span>
+            <div className="flex gap-4 items-center">
+              {sponsors.map((url, i) => (
+                <img key={i} src={url} alt="Sponsor" className="h-6 object-contain" />
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
       {/* Barra de Navegación Estática Superior */}
       <nav className="bg-cadcc-black text-white px-6 py-3 border-b border-cadcc-gold sticky top-0 z-50">
         <div className="max-w-7xl mx-auto flex flex-col sm:flex-row items-center justify-between gap-3">
           <div className="font-bold text-cadcc-gold tracking-widest text-sm hidden sm:block">CADCC CAMPUS</div>
           <div className="flex flex-wrap justify-center gap-4 sm:gap-6 text-sm font-semibold tracking-wide">
             <Link href="/" className="hover:text-cadcc-gold transition-colors">INICIO</Link>
+            <Link href="/plantel" className="hover:text-cadcc-gold transition-colors">PLANTEL</Link>
+            <Link href="/camisetas" className="hover:text-cadcc-gold transition-colors">CAMISETAS</Link>
             <Link href="/dashboard/player" className="hover:text-cadcc-gold transition-colors">PANEL JUGADOR</Link>
             <Link href="/dashboard/coach" className="hover:text-cadcc-gold transition-colors">PANEL ENTRENADOR</Link>
             <Link href="/login" className="hover:text-cadcc-gold transition-colors ml-4 border border-cadcc-gold px-3 py-1 rounded-full text-xs">ACCESO ADMIN</Link>

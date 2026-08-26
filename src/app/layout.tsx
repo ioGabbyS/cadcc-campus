@@ -16,8 +16,11 @@ import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 
 export const metadata: Metadata = {
-  title: "Campus Virtual | CADCC",
-  description: "Campus Virtual del Club Atlético Defensores Central Córdoba",
+  title: "CADCC | Campus Virtual",
+  description: "Plataforma educativa y deportiva del Club Atlético Defensores Central Córdoba",
+  icons: {
+    icon: "/central-cordoba.jpg",
+  },
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {

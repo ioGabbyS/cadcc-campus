@@ -80,6 +80,8 @@ export default function ImagesManagement() {
             className="w-full md:w-1/2 px-4 py-2 rounded-lg border border-gray-300 focus:ring-2 focus:ring-cadcc-gold outline-none bg-white"
           >
             <option>Banner Principal (Inicio)</option>
+            <option>Sponsor</option>
+            <option>Camiseta Histórica</option>
             <option>Foto para Figura del Partido</option>
             <option>Escudos y Logos (Footer/Header)</option>
           </select>
