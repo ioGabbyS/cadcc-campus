@@ -66,10 +66,9 @@ export default async function Home() {
     <div className="max-w-7xl mx-auto px-6 py-12">
       {/* Banner Principal Dinámico */}
       {bannerUrl && (
-        <div className="w-full h-64 sm:h-96 rounded-3xl overflow-hidden shadow-2xl mb-16 relative border-4 border-white">
+        <div className="w-full rounded-3xl overflow-hidden shadow-2xl mb-16 relative border-4 border-white bg-cadcc-black">
           {/* eslint-disable-next-line @next/next/no-img-element */}
-          <img src={bannerUrl} alt="Banner Principal" className="w-full h-full object-cover" />
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent"></div>
+          <img src={bannerUrl} alt="Banner Principal" className="w-full h-auto max-h-[600px] object-contain mx-auto" />
         </div>
       )}
 
