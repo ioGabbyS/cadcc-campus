@@ -1,26 +1,51 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --background: #F8FAFC;
+  --foreground: #000000;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
+  --color-cadcc-bg: #F8FAFC;
+  --color-cadcc-black: #000000;
+  --color-cadcc-gold: #D4AF37;
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
 }
 
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+}
+
+/* --- ESTILO VISUAL: BANDA DIAGONAL NEGRA --- */
+.diagonal-band-container {
+  position: relative;
+  overflow: hidden;
+  background-color: var(--background);
+}
+
+/* La banda cruzada */
+.diagonal-band-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -10%;
+  width: 120%;
+  height: 120px;
+  background-color: #000000;
+  transform: rotate(-10deg) translateY(50%);
+  transform-origin: center;
+  z-index: 0;
+  border-top: 3px solid #D4AF37;
+  border-bottom: 3px solid #D4AF37;
+}
+
+/* Contenido por encima de la banda */
+.diagonal-content {
+  position: relative;
+  z-index: 10;
 }
