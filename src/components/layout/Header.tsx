@@ -26,7 +26,7 @@ export function Header() {
           {/* Escudo CADCC */}
           <div className="w-24 h-24 sm:w-32 sm:h-32 bg-white rounded-full border-[4px] border-cadcc-gold flex items-center justify-center shadow-xl overflow-hidden p-2 shrink-0">
             {/* eslint-disable-next-line @next/next/no-img-element */}
-            <img src="/images/cadcc_shield.png" alt="Escudo CADCC" className="w-full h-full object-contain drop-shadow-md" />
+            <img src="/central-cordoba.jpg" alt="Escudo CADCC" className="w-full h-full object-contain drop-shadow-md" />
           </div>
           <div>
             <h1 className="text-3xl sm:text-5xl font-extrabold text-white drop-shadow-lg tracking-tight">Campus Virtual</h1>

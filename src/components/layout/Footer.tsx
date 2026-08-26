@@ -15,7 +15,7 @@ export function Footer() {
         {/* Firma / Seño de Gabby's Dev Innovations */}
         <div className="flex flex-col items-center gap-4">
           <Link 
-            href="/images/gabbys_dev.png" 
+            href="/GabbySDev.png" 
             target="_blank"
             rel="noopener noreferrer"
             className="text-xs sm:text-sm font-bold text-gray-400 hover:text-cadcc-gold transition-colors tracking-widest"
