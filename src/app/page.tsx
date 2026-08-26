@@ -1,6 +1,7 @@
 import { PlayerCard } from "@/components/ui/PlayerCard"
+import { supabase } from "@/lib/supabase/client"
 
-// Datos simulados (Mocks) que luego vendrán de Supabase `featured_players`
+// Datos simulados (Mocks) de fallback
 const FEATURED_PLAYERS = [
   {
     id: 1,
@@ -25,7 +26,24 @@ const FEATURED_PLAYERS = [
   }
 ]
 
-export default function Home() {
+export default async function Home() {
+  let displayPlayers = FEATURED_PLAYERS
+  
+  try {
+    const { data, error } = await supabase.from('featured_players').select('*')
+    if (!error && data && data.length > 0) {
+      displayPlayers = data.map((p: any) => ({
+        id: p.id,
+        name: p.player_name,
+        category: p.category,
+        recognitionType: p.recognition_type,
+        imageUrl: p.image_url
+      }))
+    }
+  } catch (err) {
+    console.error("Supabase no está configurado aún o faltan tablas", err)
+  }
+
   return (
     <div className="max-w-7xl mx-auto px-6 py-12">
       <section className="mb-16 text-center">
@@ -44,7 +62,7 @@ export default function Home() {
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 justify-items-center">
-          {FEATURED_PLAYERS.map(player => (
+          {displayPlayers.map((player: any) => (
             <PlayerCard 
               key={player.id}
               name={player.name}
